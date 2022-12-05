@@ -1,0 +1,7 @@
+.elements__caption-place {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #ffff;
+  border-radius: 0 0 10px 10px;
+}

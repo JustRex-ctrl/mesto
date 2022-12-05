@@ -1,0 +1,17 @@
+.profile__activity {
+  font-size: 18px;
+  line-height: 22px;
+  font-weight: 400;
+  color: #ffff;
+
+  margin: 0;
+  padding: 16px 0 0 0;
+}
+
+@media screen and (max-width: 670px) {
+  .profile__activity {
+    font-size: 14px;
+    line-height: 17px;
+    text-align: center;
+  }
+}

@@ -1,0 +1,18 @@
+.elements__like {
+  max-width: 22px;
+  min-height: 19px;
+  padding: 0 20px 0 10px;
+  background-image: url(../../../images/logo/Group.svg);
+  background-repeat: no-repeat;
+}
+
+.elements__like:active{
+  background-image: url(../../../images/logo/black-like.svg);
+
+}
+
+@media screen and (max-width: 320px) {
+  .elements__like {
+    padding: 0 30px 0 10px;
+  }
+}

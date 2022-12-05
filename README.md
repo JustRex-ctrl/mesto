@@ -14,7 +14,7 @@
 
 ---
 # GitHub Pages
-https://justrex-ctrl.github.io/russian-travel/
+https://justrex-ctrl.github.io/mesto/index
 ---
 # Планы по доработке
 1. Реализовать добавление пользователе новых посещённых мест;

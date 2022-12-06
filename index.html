@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mesto</title>
   <link rel="stylesheet" href="./pages/index.css">
-  <script async src="./script.js"></script>
+
 </head>
 <body class="page">
 
@@ -17,7 +17,7 @@
     <section class="profile">
       <img class="profile__avatar" src="./images/avatar.jpg" alt="аватар">
       <div class="profile__info">
-        <div class="profile__name"><h2 class="profile__name-title">Жак-Ив Кусто</h2><button class="profile__edit-button link-hover"></button></div>
+        <div class="profile__name"><h1 class="profile__name-title">Жак-Ив Кусто</h1><button class="profile__edit-button link-hover"></button></div>
         <p class="profile__activity">Исследователь океана</p>
 
       </div>
@@ -26,51 +26,51 @@
 
     <section class="elements">
 
-      <div class="elements__element">
+      <div class="elements__item">
         <img class="elements__place-image" src="./images/karachaevsk.jpg" alt="Карачаево-Черкесия">
         <div class="elements__caption-place">
           <p class="elements__name-place">Карачаево-Черкесия</p>
-          <div class="elements__like link-hover"></div>
+          <button class="elements__like link-hover"></button>
         </div>
       </div>
 
-      <div class="elements__element">
+      <div class="elements__item">
         <img class="elements__place-image" src="./images/elbrus.jpg" alt="Гора Эльбрус">
         <div class="elements__caption-place">
           <p class="elements__name-place">Гора Эльбрус</p>
-          <div class="elements__like link-hover"></div>
+          <button class="elements__like link-hover"></button>
         </div>
       </div>
 
-      <div class="elements__element">
+      <div class="elements__item">
         <img class="elements__place-image" src="./images/dombai.jpg" alt="Домбай">
         <div class="elements__caption-place">
           <p class="elements__name-place">Домбай</p>
-          <div class="elements__like link-hover"></div>
+          <button class="elements__like link-hover"></button>
         </div>
       </div>
 
-      <div class="elements__element">
+      <div class="elements__item">
         <img class="elements__place-image" src="./images/elbrus.jpg" alt="Гора Эльбрус">
         <div class="elements__caption-place">
           <p class="elements__name-place">Гора Эльбрус</p>
-          <div class="elements__like link-hover"></div>
+          <button class="elements__like link-hover"></button>
         </div>
       </div>
 
-      <div class="elements__element">
+      <div class="elements__item">
         <img class="elements__place-image" src="./images/dombai.jpg" alt="Домбай">
         <div class="elements__caption-place">
           <p class="elements__name-place">Домбай</p>
-          <div class="elements__like link-hover"></div>
+          <button class="elements__like link-hover"></button>
         </div>
       </div>
 
-      <div class="elements__element">
+      <div class="elements__item">
         <img class="elements__place-image" src="./images/karachaevsk.jpg" alt="Карачаево-Черкесия">
         <div class="elements__caption-place">
           <p class="elements__name-place">Карачаево-Черкесия</p>
-          <div class="elements__like link-hover"></div>
+          <button class="elements__like link-hover"></button>
         </div>
       </div>
     </section>
@@ -80,5 +80,17 @@
     <p class="footer__copyright">&copy;&nbsp;2020 Mesto Russia</p>
   </footer>
 
+  <div class="popup">
+    <div class="popup__container">
+      <img class="popup__close link-hover" src="./images/logo/Close Icon.svg" alt="закрыть">
+      <h2 class="popup__title">Редактировать профиль</h2>
+      <form class="popup__form">
+        <input class="popup__input-name" type="text" value="" required>
+        <input class="popup__input-job" type="text" value=""  required>
+        <button class="popup__button" type="submit">Сохранить</button>
+      </form>
+    </div>
+  </div>
+  <script src="./scripts/index.js"></script>
 </body>
 </html>

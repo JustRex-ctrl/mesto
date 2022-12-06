@@ -25,7 +25,7 @@
 /*Elemenst style*/
 @import url(../blocks/elements/elements.css);
 @import url(../blocks/elements/__caption-place/elements__caption-place.css);
-@import url(../blocks/elements/__element/elements__element.css);
+@import url(../blocks/elements/__item/elements__item.css);
 @import url(../blocks/elements/__like/elements__like.css);
 @import url(../blocks/elements/__name-place/elements__name-place.css);
 @import url(../blocks/elements/__place-image/elements__place-image.css);
@@ -36,9 +36,6 @@
 
 /*Link-hover style*/
 @import url(../blocks/link-hover/link-hover.css);
-
-/*Link-active style*/
-@import url(../blocks/link-active/link-active.css);
 
 /*Popup style*/
 @import url(../blocks/popup/popup.css);

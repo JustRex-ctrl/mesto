@@ -1,11 +1,11 @@
-.elements__element {
+.elements__item {
   display: flex;
   flex-direction: column;
   max-width: 282px;
 
 }
 @media screen and (max-width: 320px) {
-  .elements__element {
+  .elements__item {
     padding: 0 19px 0 19px;
   }
 }

@@ -1,4 +1,5 @@
 .popup {
+  display: none;
   position: fixed;
   margin: auto;
   top: 0;

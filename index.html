@@ -17,11 +17,11 @@
     <section class="profile">
       <img class="profile__avatar" src="./images/avatar.jpg" alt="аватар">
       <div class="profile__info">
-        <div class="profile__name"><h1 class="profile__name-title">Жак-Ив Кусто</h1><button class="profile__edit-button link-hover"></button></div>
+        <div class="profile__name"><h1 class="profile__name-title">Жак-Ив Кусто</h1><button class="profile__edit-button link-hover" type="button"></button></div>
         <p class="profile__activity">Исследователь океана</p>
 
       </div>
-      <button class="profile__add-button link-hover"></button>
+      <button class="profile__add-button link-hover" type="button"></button>
     </section>
 
     <section class="elements">
@@ -30,7 +30,7 @@
         <img class="elements__place-image" src="./images/karachaevsk.jpg" alt="Карачаево-Черкесия">
         <div class="elements__caption-place">
           <p class="elements__name-place">Карачаево-Черкесия</p>
-          <button class="elements__like link-hover"></button>
+          <button class="elements__like link-hover" type="button"></button>
         </div>
       </div>
 
@@ -38,7 +38,7 @@
         <img class="elements__place-image" src="./images/elbrus.jpg" alt="Гора Эльбрус">
         <div class="elements__caption-place">
           <p class="elements__name-place">Гора Эльбрус</p>
-          <button class="elements__like link-hover"></button>
+          <button class="elements__like link-hover" type="button"></button>
         </div>
       </div>
 
@@ -46,7 +46,7 @@
         <img class="elements__place-image" src="./images/dombai.jpg" alt="Домбай">
         <div class="elements__caption-place">
           <p class="elements__name-place">Домбай</p>
-          <button class="elements__like link-hover"></button>
+          <button class="elements__like link-hover" type="button"></button>
         </div>
       </div>
 
@@ -54,7 +54,7 @@
         <img class="elements__place-image" src="./images/elbrus.jpg" alt="Гора Эльбрус">
         <div class="elements__caption-place">
           <p class="elements__name-place">Гора Эльбрус</p>
-          <button class="elements__like link-hover"></button>
+          <button class="elements__like link-hover" type="button"></button>
         </div>
       </div>
 
@@ -62,7 +62,7 @@
         <img class="elements__place-image" src="./images/dombai.jpg" alt="Домбай">
         <div class="elements__caption-place">
           <p class="elements__name-place">Домбай</p>
-          <button class="elements__like link-hover"></button>
+          <button class="elements__like link-hover" type="button"></button>
         </div>
       </div>
 
@@ -70,7 +70,7 @@
         <img class="elements__place-image" src="./images/karachaevsk.jpg" alt="Карачаево-Черкесия">
         <div class="elements__caption-place">
           <p class="elements__name-place">Карачаево-Черкесия</p>
-          <button class="elements__like link-hover"></button>
+          <button class="elements__like link-hover" type="button"></button>
         </div>
       </div>
     </section>
@@ -84,9 +84,9 @@
     <div class="popup__container">
       <img class="popup__close link-hover" src="./images/logo/CloseIcon.svg" alt="закрыть">
       <h2 class="popup__title">Редактировать профиль</h2>
-      <form class="popup__form">
-        <input class="popup__input-name" type="text" value="" required>
-        <input class="popup__input-job" type="text" value=""  required>
+      <form class="popup__form" name="popup-form">
+        <input class="popup__input popup__input-name" type="text" name="input-name" value="" required>
+        <input class="popup__input popup__input-job" type="text" name="input-job" value=""  required>
         <button class="popup__button" type="submit">Сохранить</button>
       </form>
     </div>

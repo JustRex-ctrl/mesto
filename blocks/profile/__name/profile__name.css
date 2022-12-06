@@ -16,3 +16,9 @@
   }
 }
 
+@media screen and (max-width: 310px) {
+  .profile__name {
+    padding: 0;
+  }
+}
+

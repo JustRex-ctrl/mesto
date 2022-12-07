@@ -16,9 +16,9 @@
     padding: 25px 0 70px 22px;
   }
 }
+
 @media screen and (max-width: 310px) {
   .popup__title {
-
     padding: 25px 0 50px 22px;
   }
 }

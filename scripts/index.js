@@ -3,8 +3,8 @@ const popupClose = document.querySelector('.popup__close');
 const popup = document.querySelector('.popup');
 let nameProfile = document.querySelector('.profile__name-title');
 let profileActivity = document.querySelector('.profile__activity');
-let nameInput = document.querySelector('.popup__input-name');
-let jobInput = document.querySelector('.popup__input-job');
+let nameInput = document.querySelector('.popup_input-name');
+let jobInput = document.querySelector('.popup_input-job');
 
 //откытие popup
 function openPopup(event) {

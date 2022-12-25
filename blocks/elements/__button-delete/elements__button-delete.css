@@ -1,0 +1,14 @@
+.elements__button-delete {
+  max-width: 18px;
+  min-height: 19px;
+  position: relative;
+  right: -245px;
+  top: 35px;
+  margin-top: 0;
+  background-image: url(../../../images/logo/TrashCan.svg);
+  background-repeat: no-repeat;
+  border: none;
+  cursor: pointer;
+  font: inherit;
+  background-color: transparent;
+}

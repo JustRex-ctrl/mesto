@@ -1,0 +1,22 @@
+.popup__container-image {
+  position: relative;
+  margin: 0 auto;
+  top: 20vh;
+  width: 100%;
+  max-width: 815px;
+  height: 540px;
+  opacity: 1;
+}
+
+@media screen and (max-width: 900px) {
+  .popup__container-image {
+    max-width: 415px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .popup__container-image {
+    max-width: 240px;
+    height: 300px;
+  }
+}

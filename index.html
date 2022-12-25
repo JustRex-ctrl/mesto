@@ -31,53 +31,17 @@
 
     <section class="elements">
 
-      <div class="elements__item">
-        <img class="elements__place-image" src="./images/karachaevsk.jpg" alt="Карачаево-Черкесия">
-        <div class="elements__caption-place">
-          <p class="elements__name-place">Карачаево-Черкесия</p>
-          <button class="elements__like link-hover" type="button"></button>
-        </div>
+      <template id="elements__template">
+        <div class="elements__item">
+          <button class="elements__button-delete link-hover"></button>
+          <img class="elements__place-image" src="" alt="Фотография">
+          <div class="elements__caption-place">
+            <p class="elements__name-place"></p>
+            <button class="elements__like link-hover" type="button"></button>
+          </div>
       </div>
+      </template>
 
-      <div class="elements__item">
-        <img class="elements__place-image" src="./images/elbrus.jpg" alt="Гора Эльбрус">
-        <div class="elements__caption-place">
-          <p class="elements__name-place">Гора Эльбрус</p>
-          <button class="elements__like link-hover" type="button"></button>
-        </div>
-      </div>
-
-      <div class="elements__item">
-        <img class="elements__place-image" src="./images/dombai.jpg" alt="Домбай">
-        <div class="elements__caption-place">
-          <p class="elements__name-place">Домбай</p>
-          <button class="elements__like link-hover" type="button"></button>
-        </div>
-      </div>
-
-      <div class="elements__item">
-        <img class="elements__place-image" src="./images/elbrus.jpg" alt="Гора Эльбрус">
-        <div class="elements__caption-place">
-          <p class="elements__name-place">Гора Эльбрус</p>
-          <button class="elements__like link-hover" type="button"></button>
-        </div>
-      </div>
-
-      <div class="elements__item">
-        <img class="elements__place-image" src="./images/dombai.jpg" alt="Домбай">
-        <div class="elements__caption-place">
-          <p class="elements__name-place">Домбай</p>
-          <button class="elements__like link-hover" type="button"></button>
-        </div>
-      </div>
-
-      <div class="elements__item">
-        <img class="elements__place-image" src="./images/karachaevsk.jpg" alt="Карачаево-Черкесия">
-        <div class="elements__caption-place">
-          <p class="elements__name-place">Карачаево-Черкесия</p>
-          <button class="elements__like link-hover" type="button"></button>
-        </div>
-      </div>
     </section>
   </main>
 
@@ -85,17 +49,41 @@
     <p class="footer__copyright">&copy;&nbsp;2020 Mesto Russia</p>
   </footer>
 
-  <div class="popup">
+  <!-- Изменение профиля -->
+  <div class="popup popup_edit">
     <div class="popup__container">
       <img class="popup__close link-hover" src="./images/logo/CloseIcon.svg" alt="закрыть">
       <h2 class="popup__title">Редактировать профиль</h2>
-      <form class="popup__form" name="popup-form">
+      <form class="popup__form popup__edit" name="popup-form">
         <input class="popup__input popup__input_name" type="text" name="input-name" value="" required>
         <input class="popup__input popup__input_job" type="text" name="input-job" value="" required>
-        <button class="popup__button" type="submit">Сохранить</button>
+        <button class="popup__button"  type="submit">Сохранить</button>
       </form>
     </div>
   </div>
+
+  <!-- Добавление карточки  -->
+  <div class="popup popup_add">
+    <div class="popup__container">
+      <img class="popup__close link-hover" src="./images/logo/CloseIcon.svg" alt="закрыть">
+      <h2 class="popup__title">Новое место</h2>
+      <form class="popup__form popup__add" name="popup-form">
+        <input class="popup__input popup__input_place-name" type="text" name="input-name" value="" placeholder="Название" required>
+        <input class="popup__input popup__input_place-image" type="text" name="input-job" value="" placeholder="Ссылка на картинку" required>
+        <button class="popup__button"  type="submit">Сохранить</button>
+      </form>
+    </div>
+  </div>
+
+    <!-- открытие картинки -->
+    <div class="popup popup_image-open">
+      <div class="popup__container-image">
+        <img class="popup__close link-hover" src="./images/logo/CloseIcon.svg" alt="закрыть">
+        <img class="popup__image-place" src="" alt="">
+        <p class="popup__title-image"></p>
+      </div>
+    </div>
+
   <script src="./scripts/index.js"></script>
 </body>
 

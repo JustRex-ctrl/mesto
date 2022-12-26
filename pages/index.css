@@ -55,3 +55,4 @@
 @import url(../blocks/popup/__container-image/popup__container-image.css);
 @import url(../blocks/popup/__image-place/popup__image-place.css);
 @import url(../blocks/popup/__title-image/popup__title-image.css);
+@import url(../blocks/popup/_image-open/popup_image-open.css);

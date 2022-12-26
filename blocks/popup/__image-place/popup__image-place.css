@@ -1,18 +1,6 @@
 .popup__image-place {
   object-fit: cover;
-  width: 816px;
-  height: 540px;
+  max-width: 75vw;
+  max-height: 75vh;
 }
 
-@media screen and (max-width: 900px) {
-  .popup__image-place {
-    width: 416px;
-  }
-}
-
-@media screen and (max-width: 600px) {
-  .popup__image-place {
-    width: 240px;
-    height: 300px;
-  }
-}

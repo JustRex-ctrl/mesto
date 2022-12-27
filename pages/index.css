@@ -24,13 +24,6 @@
 
 /*Elemenst style*/
 @import url(../blocks/elements/elements.css);
-@import url(../blocks/elements/__caption-place/elements__caption-place.css);
-@import url(../blocks/elements/__item/elements__item.css);
-@import url(../blocks/elements/__like/elements__like.css);
-@import url(../blocks/elements/__name-place/elements__name-place.css);
-@import url(../blocks/elements/__place-image/elements__place-image.css);
-@import url(../blocks/elements/__like/_active/elements__like_active.css);
-@import url(../blocks/elements/__button-delete/elements__button-delete.css);
 
 /*Footer style*/
 @import url(../blocks/footer/footer.css);
@@ -56,3 +49,12 @@
 @import url(../blocks/popup/__image-place/popup__image-place.css);
 @import url(../blocks/popup/__title-image/popup__title-image.css);
 @import url(../blocks/popup/_image-open/popup_image-open.css);
+
+/*Card style*/
+@import url(../blocks/card/card.css);
+@import url(../blocks/card/__button-delete/card__button-delete.css);
+@import url(../blocks/card/__place-image/card__place-image.css);
+@import url(../blocks/card/__caption-place/card__caption-place.css);
+@import url(../blocks/card/__name-place/card__name-place.css);
+@import url(../blocks/card/__like/card__like.css);
+@import url(../blocks/card/__like/_active/card__like_active.css);

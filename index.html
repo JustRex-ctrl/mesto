@@ -31,8 +31,6 @@
 
     <section class="elements">
 
-
-
     </section>
   </main>
 
@@ -54,7 +52,7 @@
   </div>
 
   <!-- Добавление карточки  -->
-  <div class="popup popup_add">
+  <div class="popup popup_type_add">
     <div class="popup__container">
       <img class="popup__close link-hover" src="./images/logo/CloseIcon.svg" alt="закрыть">
       <h2 class="popup__title">Новое место</h2>
@@ -67,7 +65,7 @@
   </div>
 
     <!-- открытие картинки -->
-    <div class="popup popup_image-open">
+    <div class="popup popup_type_image-open">
       <div class="popup__container-image">
         <img class="popup__close link-hover" src="./images/logo/CloseIcon.svg" alt="закрыть">
         <img class="popup__image-place" src="#" alt="">
@@ -76,13 +74,13 @@
     </div>
 
     <!-- template блок -->
-    <template id="elements__template">
-      <div class="elements__item">
-        <button class="elements__button-delete link-hover"></button>
-        <img class="elements__place-image" src="#" alt="Фотография">
-        <div class="elements__caption-place">
-          <p class="elements__name-place"></p>
-          <button class="elements__like link-hover" type="button"></button>
+    <template id="card-template">
+      <div class="card">
+        <button class="card__button-delete link-hover"></button>
+        <img class="card__place-image" src="#" alt="Фотография">
+        <div class="card__caption-place">
+          <p class="card__name-place"></p>
+          <button class="card__like link-hover" type="button"></button>
         </div>
     </div>
     </template>

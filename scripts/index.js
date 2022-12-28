@@ -93,10 +93,8 @@ const createElement = function (elementData) {
   });
 
   //лайки
-  element.querySelectorAll('.card__like').forEach((elementLike) => {
-    elementLike.addEventListener('click', function(evt){
-      evt.target.classList.toggle('card__like_active');
-    });
+  element.querySelector('.card__like').addEventListener('click', (evt)=> {
+    evt.target.classList.toggle('card__like_active');
   });
 
   return element;

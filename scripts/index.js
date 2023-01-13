@@ -1,6 +1,6 @@
 const profileButton = document.querySelector('.profile__edit-button');
 const popupClosingButtons = document.querySelectorAll('.popup__close');
-const popup = document.querySelectorAll('.popup');
+const popups = document.querySelectorAll('.popup');
 const popupEdit = document.querySelector('.popup_type_edit');
 const popupAdd = document.querySelector('.popup_type_add');
 const nameProfile = document.querySelector('.profile__name-title');
@@ -45,7 +45,7 @@ popupClosingButtons.forEach((item)=> item.addEventListener('click', ()=> {
 }));
 
 //закрытие popup по нажатию мимо контейнера
-popup.forEach((item) => {
+popups.forEach((item) => {
   item.addEventListener('mousedown', (evt) => {
     if (evt.target.classList.contains('popup_opened')) {
       closePopup(item);
@@ -63,9 +63,9 @@ function closePopupButtonEsc(evt) {
 
 
 //отправка формы изменить
-const formElement = document.querySelector('.popup__edit');
+const profileCloseButton = document.querySelector('.popup__edit');
 
-formElement.addEventListener('submit', function(evt) {
+profileCloseButton.addEventListener('submit', function(evt) {
   evt.preventDefault();
   nameProfile.textContent = nameInput.value;
   profileActivity.textContent = jobInput.value;
@@ -155,10 +155,12 @@ const handleAddCard = (evt) => {
   renderElement(elementName, link);
 
   closePopup(popupAdd)
+
   inputPlaceName.value = '';
   inputPlaceImage.value = '';
+
 };
-popupAddForm.addEventListener('submit', handleAddCard);
+popupAddForm.addEventListener('reset', handleAddCard);
 
 //открытие кароточки по нажатию
 const popupImageOpen = document.querySelector('.popup_type_image-open');
@@ -168,7 +170,7 @@ const popupImageTitle = document.querySelector('.popup__title-image');
 function setCardImageListener(imageNode) {
   imageNode.addEventListener('click', ({target}) => {
     popupImagePlace.src = target.src;
-    popupImagePlace.alt = target.parentElement.querySelector('.card__name-place').textContent;
+    popupImagePlace.alt = target.closest.textContent;
     popupImageTitle.textContent = target.parentElement.querySelector('.card__name-place').textContent;
 
     openPopup(popupImageOpen);

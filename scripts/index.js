@@ -63,9 +63,9 @@ function closePopupButtonEsc(evt) {
 
 
 //отправка формы изменить
-const profileCloseButton = document.querySelector('.popup__edit');
+const profileForm = document.querySelector('.popup__edit');
 
-profileCloseButton.addEventListener('submit', function(evt) {
+profileForm.addEventListener('submit', function(evt) {
   evt.preventDefault();
   nameProfile.textContent = nameInput.value;
   profileActivity.textContent = jobInput.value;
@@ -136,7 +136,7 @@ const elements = document.querySelector('.elements');
 
 const renderElement = (name, link) => {
   const newCard = createElement({name, link})
-  elements.append(newCard);
+  elements.prepend(newCard);
 };
 
 elements.append(...initialCards.map(createElement));

@@ -156,11 +156,9 @@ const handleAddCard = (evt) => {
 
   closePopup(popupAdd)
 
-  inputPlaceName.value = '';
-  inputPlaceImage.value = '';
-
+  evt.target.reset();
 };
-popupAddForm.addEventListener('reset', handleAddCard);
+popupAddForm.addEventListener('submit', handleAddCard);
 
 //открытие кароточки по нажатию
 const popupImageOpen = document.querySelector('.popup_type_image-open');
@@ -170,8 +168,8 @@ const popupImageTitle = document.querySelector('.popup__title-image');
 function setCardImageListener(imageNode) {
   imageNode.addEventListener('click', ({target}) => {
     popupImagePlace.src = target.src;
-    popupImagePlace.alt = target.closest.textContent;
-    popupImageTitle.textContent = target.parentElement.querySelector('.card__name-place').textContent;
+    popupImagePlace.alt = target.alt;
+    popupImageTitle.textContent = target.alt;
 
     openPopup(popupImageOpen);
   });

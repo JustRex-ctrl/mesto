@@ -108,18 +108,20 @@ const initialCards = [
 const elements = document.querySelector('.elements');
 
 const addCard = (newCard) => {
-  elements.prepend(newCard);
+  elements.append(newCard);
 };
 
-const renderElement = (cardData) => {
+const createCard = (cardData) => {
   const card = new Card(cardData, '#card-template');
   const newCard = card.getView();
 
-  addCard(newCard);
+  return newCard;
 };
 
+
+
 initialCards.forEach((element) => {
-  elements.append(renderElement(element));
+  addCard(createCard(element));
 });
 
 //добавление кароточек
@@ -128,31 +130,20 @@ const  inputPlaceName = document.querySelector('.popup__input_place-name');
 const  inputPlaceImage = document.querySelector('.popup__input_place-image');
 
 const handleAddCard = (evt) => {
-  evt.preventDefault(evt);
+  evt.preventDefault();
 
   const elementName = inputPlaceName.value;
   const link = inputPlaceImage.value;
 
-  renderElement({name: elementName, link: link});
+  const card = createCard({name: elementName, link: link});
+
+  addCard(card)
 
   closePopup(popupAdd)
 
   evt.target.reset();
 };
 popupAddForm.addEventListener('submit', handleAddCard);
-
-//открытие кароточки по нажатию
-const popupImageOpen = document.querySelector('.popup_type_image-open');
-const popupImagePlace = document.querySelector('.popup__image-place');
-const popupImageTitle = document.querySelector('.popup__title-image');
-
-export function setCardImageListener(title, link){
-  openPopup(popupImageOpen);
-
-  popupImagePlace.src = title;
-  popupImagePlace.alt = link;
-  popupImageTitle.textContent = link;
-}
 
 //валидация
 const formProfileValidation = new FormValidator(validationConfig, profileForm);

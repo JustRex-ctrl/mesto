@@ -108,17 +108,15 @@ const initialCards = [
 const elements = document.querySelector('.elements');
 
 const addCard = (newCard) => {
-  elements.append(newCard);
+  elements.prepend(newCard);
 };
 
 const createCard = (cardData) => {
-  const card = new Card(cardData, '#card-template');
+  const card = new Card(cardData, '#card-template', setCardImageListener);
   const newCard = card.getView();
 
   return newCard;
 };
-
-
 
 initialCards.forEach((element) => {
   addCard(createCard(element));
@@ -144,6 +142,21 @@ const handleAddCard = (evt) => {
   evt.target.reset();
 };
 popupAddForm.addEventListener('submit', handleAddCard);
+
+
+//открытие кароточки по нажатию
+const popupImageOpen = document.querySelector('.popup_type_image-open');
+const popupImagePlace = document.querySelector('.popup__image-place');
+const popupImageTitle = document.querySelector('.popup__title-image');
+
+export function setCardImageListener(title, link) {
+
+  openPopup(popupImageOpen);
+
+  popupImagePlace.src = title;
+  popupImagePlace.alt = link;
+  popupImageTitle.textContent = link;
+}
 
 //валидация
 const formProfileValidation = new FormValidator(validationConfig, profileForm);

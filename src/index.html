@@ -5,19 +5,18 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mesto</title>
-  <link rel="stylesheet" href="./pages/index.css">
 
 </head>
 
 <body class="page">
 
   <header class="header">
-    <img class="header__logo" src="./images/logo/Vector.svg" alt="Место">
+    <img class="header__logo" src="<%=require('./images/logo/Vector.svg')%>" alt="Место">
   </header>
 
   <main class="content">
     <section class="profile">
-      <img class="profile__avatar" src="./images/avatar.jpg" alt="аватар">
+      <img class="profile__avatar" src="<%=require('./images/avatar.jpg')%>" alt="аватар">
       <div class="profile__info">
         <div class="profile__name">
           <h1 class="profile__name-title">Жак-Ив Кусто</h1><button class="profile__edit-button link-hover"
@@ -41,7 +40,7 @@
   <!-- Изменение профиля -->
   <div class="popup popup_type_edit">
     <div class="popup__container">
-      <img class="popup__close link-hover" src="./images/logo/CloseIcon.svg" alt="закрыть">
+      <img class="popup__close link-hover" src="<%=require('./images/logo/Vector.svg')%>" alt="закрыть">
       <h2 class="popup__title">Редактировать профиль</h2>
       <form class="popup__form popup__edit" name="popup-form" novalidate>
         <input class="popup__input popup__input_name" id="username" type="text" name="input-name" value="" minlength="2" maxlength="40" placeholder="ФИО" required>
@@ -56,7 +55,7 @@
   <!-- Добавление карточки  -->
   <div class="popup popup_type_add">
     <div class="popup__container">
-      <img class="popup__close link-hover" src="./images/logo/CloseIcon.svg" alt="закрыть">
+      <img class="popup__close link-hover" src="<%=require('./images/logo/CloseIcon.svg')%>"  alt="закрыть">
       <h2 class="popup__title">Новое место</h2>
       <form class="popup__form popup__add" name="popup-form" novalidate>
         <input class="popup__input popup__input_place-name" id="place" type="text" name="input-name" value="" minlength="2" maxlength="30" placeholder="Название" required>
@@ -71,7 +70,7 @@
     <!-- открытие картинки -->
     <div class="popup popup_type_image-open">
       <div class="popup__container-image">
-        <img class="popup__close link-hover" src="./images/logo/CloseIcon.svg" alt="закрыть">
+        <img class="popup__close link-hover" src="<%=require('./images/logo/CloseIcon.svg')%>"  alt="закрыть">
         <img class="popup__image-place" src="#" alt="">
         <p class="popup__title-image"></p>
       </div>
@@ -88,8 +87,8 @@
         </div>
     </div>
     </template>
-  <script src="./scripts/validate.js"></script>
-  <script type="module" src="./scripts/index.js"></script>
+  <!-- <script src="./scripts/validate.js"></script>
+  <script type="module" src="./scripts/index.js"></script> -->
 </body>
 
 </html>

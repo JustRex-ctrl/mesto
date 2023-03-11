@@ -1,13 +1,19 @@
-import {openPopup, setCardImageListener} from './index.js';
+import {PopupWithImage} from '../components/PopupWithImage.js';
 
-class Card {
+export class Card {
 cardLike = null;
-  constructor(cardElement, elementsTemplate, setCardImageListener){
+  constructor(cardElement, elementsTemplate){
     this._name = cardElement.name;
     this._link = cardElement.link;
 
     this._elementsTemplate = elementsTemplate;
-    this._setCardImageListener = setCardImageListener;
+
+  }
+
+  _setCardImageListener(link,name){
+    const popupOpenImage = document.querySelector('.popup_type_image-open');
+      const popupWithImage = new PopupWithImage(popupOpenImage);
+      popupWithImage.open(link,name);
   }
 
   _getTemplate() {

@@ -12,6 +12,7 @@
 4. Adaptive layout
 5. js
 6. Form Validation
+7. webPack
 
 ---
 # GitHub Pages

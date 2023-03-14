@@ -1,9 +1,11 @@
 import '../pages/index.css';
 import {Card} from '../components/Card.js';
-import {FormValidator, validationConfig} from '../components/FormValidator.js'
+import {FormValidator} from '../components/FormValidator.js'
+import {validationConfig} from '../components/constants.js';
 import {Section} from '../components/Section.js';
 import {PopupWithForm} from '../components/PopupWithForm.js';
 import {UserInfo} from '../components/UserInfo.js';
+import {PopupWithImage} from '../components/PopupWithImage';
 
 const profileButton = document.querySelector('.profile__edit-button');
 const popupAdd = document.querySelector('.popup_type_add');
@@ -12,8 +14,6 @@ const profileActivity = document.querySelector('.profile__activity');
 const nameInput = document.querySelector('.popup__input_name');
 const jobInput = document.querySelector('.popup__input_job');
 const popupTypeEdit = document.querySelector('.popup_type_edit');
-const popupInputPlaceName = document.querySelector('.popup__input_place-name');
-const popupInputPlaceImage = document.querySelector('.popup__input_place-image');
 const popupAddForm = document.querySelector('.popup__add');
 const profileForm = document.querySelector('.popup__edit');
 const profileAddButton = document.querySelector('.profile__add-button');
@@ -46,7 +46,7 @@ const initialCards = [
   }
 ];
 
-const elements = document.querySelector('.elements');
+const elements = '.elements';
 
 const imagesList = new Section({
   items: initialCards,
@@ -58,18 +58,26 @@ const imagesList = new Section({
 
 imagesList.rendererItems();
 
+function clickCardHandler(){
+  const popupOpenImage = document.querySelector('.popup_type_image-open');
+  const popupWithImage = new PopupWithImage(popupOpenImage);
+  return popupWithImage.open.bind(popupWithImage);
+
+}
+
 //функция создания карточки для форм
 function createCard(item) {
+  const {name,link } = item
+  const popupHandler = clickCardHandler(name,link)
+  const card = new Card({name,link}, '#card-template', popupHandler);
 
-  const card = new Card({name: item.name, link: item.link}, '#card-template');
-
-    const test = card.getView();
-    return test;
+    const cardView = card.getView();
+    return cardView;
 };
 //
 const popupAddUserFoto = new PopupWithForm(popupAdd,
-    { handleFormSubmit: () => {
-        const newImage = createCard({name: popupInputPlaceName.value, link: popupInputPlaceImage.value});
+    { handleFormSubmit: ({place,link}) => {
+        const newImage = createCard({name: place, link: link});
         imagesList.addItem(newImage);
     }
     }

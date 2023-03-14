@@ -46,11 +46,9 @@ export class FormValidator {
   _toggleButtonState() {
     if (this._hasInvalidInput()) {
       this._buttonElement.classList.remove(this._activeButtonClass);
-      this._buttonElement.classList.add(this._inactiveButtonClass);
       this._buttonElement.disabled = true;
     } else {
       this._buttonElement.classList.add(this._activeButtonClass);
-      this._buttonElement.classList.remove(this._inactiveButtonClass);
       this._buttonElement.disabled = false;
     }
   };
@@ -76,16 +74,7 @@ export class FormValidator {
   };
 };
 
-//объект валидации
-export const validationConfig = {
-  formSelector: '.popup__form',
-  inputSelector: '.popup__input',
-  submitButtonSelector: '.popup__button',
-  inactiveButtonClass: 'popup__button_disabled',
-  inputErrorClass: 'popup__input_type_error',
-  errorClass: 'popup__error_visible',
-  activeButtonClass: 'popup__button_valid',
-};
+
 
 
 

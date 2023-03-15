@@ -1,11 +1,11 @@
-import {Popup} from '../components/Popup.js';
+import Popup from '../components/Popup.js';
 
 export class PopupWithImage extends Popup {
-  constructor(popup) {
-    super(popup);
-
-    this._link = popup.querySelector('.popup__image-place');
-    this._name = popup.querySelector('.popup__title-image');
+  constructor(popupSelector) {
+    super(popupSelector);
+    this._popup = document.querySelector(popupSelector)
+    this._link = this._popup.querySelector('.popup__image-place');
+    this._name = this._popup.querySelector('.popup__title-image');
   }
 
   open(link, name) {
@@ -15,5 +15,8 @@ export class PopupWithImage extends Popup {
 
     super.open();
 
+  }
+    setEventListeners(){
+    super.setEventListeners();
   }
 }

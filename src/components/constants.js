@@ -8,3 +8,8 @@ export const validationConfig = {
   errorClass: 'popup__error_visible',
   activeButtonClass: 'popup__button_valid',
 };
+
+export const userInfoData = {
+  profileName: '.profile__name-title',
+  profileJob: '.profile__activity'
+};

@@ -1,7 +1,11 @@
+import {userInfoData} from './constants.js'
+
 export class UserInfo {
-  constructor({name, job}) {
-    this._userName = name;
-    this._userJob = job;
+  constructor() {
+    const {profileName, profileJob} = userInfoData;
+
+    this._userName = document.querySelector(profileName);
+    this._userJob = document.querySelector(profileJob);
   }
 
   getUserInfo() {

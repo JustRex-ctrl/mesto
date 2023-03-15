@@ -8,15 +8,15 @@ import {UserInfo} from '../components/UserInfo.js';
 import {PopupWithImage} from '../components/PopupWithImage';
 
 const profileButton = document.querySelector('.profile__edit-button');
-const popupAdd = document.querySelector('.popup_type_add');
-const nameProfile = document.querySelector('.profile__name-title');
+const popupAdd = '.popup_type_add';
 const profileActivity = document.querySelector('.profile__activity');
 const nameInput = document.querySelector('.popup__input_name');
 const jobInput = document.querySelector('.popup__input_job');
-const popupTypeEdit = document.querySelector('.popup_type_edit');
+const popupTypeEdit = '.popup_type_edit';
 const popupAddForm = document.querySelector('.popup__add');
 const profileForm = document.querySelector('.popup__edit');
 const profileAddButton = document.querySelector('.profile__add-button');
+const popupOpenImage = '.popup_type_image-open';
 
 //Масив карточек
 const initialCards = [
@@ -48,6 +48,22 @@ const initialCards = [
 
 const elements = '.elements';
 
+
+
+
+const popupWithImage = new PopupWithImage(popupOpenImage);
+popupWithImage.setEventListeners();
+//функция создания карточки для форм
+const createCard = (item) => {
+  const {name,link } = item
+  const popupHandler = popupWithImage.open.bind(popupWithImage);
+  const card = new Card({name,link}, '#card-template', popupHandler);
+
+    const cardView = card.getView();
+    return cardView;
+};
+//
+
 const imagesList = new Section({
   items: initialCards,
   renderer: (item) => {
@@ -58,23 +74,6 @@ const imagesList = new Section({
 
 imagesList.rendererItems();
 
-function clickCardHandler(){
-  const popupOpenImage = document.querySelector('.popup_type_image-open');
-  const popupWithImage = new PopupWithImage(popupOpenImage);
-  return popupWithImage.open.bind(popupWithImage);
-
-}
-
-//функция создания карточки для форм
-function createCard(item) {
-  const {name,link } = item
-  const popupHandler = clickCardHandler(name,link)
-  const card = new Card({name,link}, '#card-template', popupHandler);
-
-    const cardView = card.getView();
-    return cardView;
-};
-//
 const popupAddUserFoto = new PopupWithForm(popupAdd,
     { handleFormSubmit: ({place,link}) => {
         const newImage = createCard({name: place, link: link});
@@ -82,9 +81,10 @@ const popupAddUserFoto = new PopupWithForm(popupAdd,
     }
     }
   );
+  debugger
   popupAddUserFoto.setEventListeners();
 
-  const userInfo = new UserInfo({name: nameProfile, job: profileActivity});
+  const userInfo = new UserInfo();
 
   const popupEditUserProfile = new PopupWithForm(popupTypeEdit,
     { handleFormSubmit: (userData) => {
@@ -110,5 +110,5 @@ profileButton.addEventListener('click', () => {
 //add form
 profileAddButton.addEventListener('click', function(){
   popupAddUserFoto.open();
-  addFormValidation.resetFormButton();
+  addFormValidation.toggleButtonState();
 });

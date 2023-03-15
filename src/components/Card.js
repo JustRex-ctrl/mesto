@@ -1,5 +1,3 @@
-import {PopupWithImage} from '../components/PopupWithImage.js';
-
 export class Card {
   constructor(cardElement, elementsTemplate, handler){
     this._name = cardElement.name;
@@ -7,6 +5,8 @@ export class Card {
     this._handler = handler
     this._elementsTemplate = elementsTemplate;
 
+    this._element = this._getTemplate();
+    this._likeButton = this._element.querySelector('.card__like');
   }
 
   _getTemplate() {
@@ -17,37 +17,37 @@ export class Card {
   }
 
   _deleteCard() {
-    this._newCard.remove();
-    this._newCard = null;
+    this._element.remove();
+    this._element = null;
   }
 
   _clickLikeButton() {
-    this._likeButton = this._newCard.querySelector('.card__like')
+    //this._likeButton = this._newCard.querySelector('.card__like')
     this._likeButton.classList.toggle('card__like_active');
   }
 
   _setEventListeners() {
-    this._newCard.querySelector('.card__button-delete').addEventListener('click', ()=> {this._deleteCard()});
-    this._newCard.querySelector('.card__like').addEventListener('click', () => {this._clickLikeButton()});
+    this._element.querySelector('.card__button-delete').addEventListener('click', ()=> {this._deleteCard()});
+    this._likeButton.addEventListener('click', () => {this._clickLikeButton()});
     this._cardImage.addEventListener('click', ()=> {this._handler(this._link, this._name);});
   }
 
   _generateCard() {
-    this._cardImage =  this._newCard.querySelector('.card__place-image');
+    this._cardImage =  this._element.querySelector('.card__place-image');
 
     this._cardImage.src = this._link;
     this._cardImage.alt = this._name;
-    this._newCard.querySelector('.card__name-place').textContent = this._name;
+    this._element.querySelector('.card__name-place').textContent = this._name;
   }
 
   getView() {
-    this._newCard = this._getTemplate();
+
 
     this._generateCard();
 
     this._setEventListeners();
 
-    return this._newCard;
+    return this._element;
   }
 }
 

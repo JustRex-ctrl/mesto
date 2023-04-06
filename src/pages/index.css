@@ -21,6 +21,7 @@
 @import url(../blocks/profile/__info/profile__info.css);
 @import url(../blocks/profile/__name/profile__name.css);
 @import url(../blocks/profile/__name-title/profile__name-title.css);
+@import url(../blocks/profile/__avatar-edit-btn/profile__avatar-edit-btn.css);
 
 /*Elemenst style*/
 @import url(../blocks/elements/elements.css);
@@ -62,3 +63,4 @@
 @import url(../blocks/card/__name-place/card__name-place.css);
 @import url(../blocks/card/__like/card__like.css);
 @import url(../blocks/card/__like/_active/card__like_active.css);
+@import url(../blocks/card/__like-counter/element__like-counter.css);

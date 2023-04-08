@@ -19,5 +19,6 @@ export const validationConfig = {
 
 export const userInfoData = {
   profileName: '.profile__name-title',
-  profileJob: '.profile__activity'
+  profileJob: '.profile__activity',
+  profileAvatar: '.profile__avatar'
 };

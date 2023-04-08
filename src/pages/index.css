@@ -64,3 +64,4 @@
 @import url(../blocks/card/__like/card__like.css);
 @import url(../blocks/card/__like/_active/card__like_active.css);
 @import url(../blocks/card/__like-counter/element__like-counter.css);
+@import url(../blocks/card/__like_container/card__like_container.css);

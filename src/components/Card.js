@@ -1,5 +1,5 @@
 export class Card {
-  constructor(cardElement, elementsTemplate, handler, handleCardLike, userId){
+  constructor(cardElement, elementsTemplate, handler, handleCardRemove, handleCardLike, userId){
 
     this._elementsTemplate = elementsTemplate;
     this._handleCardLike = handleCardLike;
@@ -59,18 +59,18 @@ export class Card {
   }
 
   generateCard() {
-    this._card = this._getTemplate();
+    this._element = this._getTemplate();
     this._cardImage =  this._element.querySelector('.card__place-image');
     this._cardTitle = this._element.querySelector('.card__name-place');
     this._btnLike = this._element.querySelector('.card__like');
     this._btnDelete = this._element.querySelector('.card__button-delete');
     this._likesCounter = this._element.querySelector('.element__like-counter');
 
-    if (this._ownerId !== this._userId) this._btnDelete.remove();
+   /*  if (this._ownerId !== this._userId) this._btnDelete.remove(); */
 
-    this._cardImage.src = this._cardElemen.link;
-    this._cardImage.alt = this._cardElemen.name;
-    this._cardTitle.textContent = this._cardElemen.name;
+    this._cardImage.src = this._link;
+    this._cardImage.alt = this._name;
+    this._cardTitle.textContent = this._name;
     this._likesCounter.textContent = this._likes.length;
 
     this._likes.forEach((like) => {

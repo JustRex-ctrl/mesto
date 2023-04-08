@@ -11,42 +11,35 @@ import {PopupWithWarning} from '../components/PopupWithWarning.js'
 
 const profileButton = document.querySelector('.profile__edit-button');
 const popupAdd = '.popup_type_add';
-const userActivity = document.querySelector('.profile__activity');
 const nameInput = document.querySelector('.popup__input_name');
 const jobInput = document.querySelector('.popup__input_job');
-const userAvatar = document.querySelector('.profile__avatar');
 const popupTypeEdit = '.popup_type_edit';
 const popupAddForm = document.querySelector('.popup__add');
 const profileForm = document.querySelector('.popup__edit');
 const profileAddButton = document.querySelector('.profile__add-button');
 const popupOpenImage = '.popup_type_image-open';
 const popupOpenWarning = '.popup-warning';
-const userName = document.querySelector('.profile__name-title');
 const btnEditAvatar = document.querySelector('.profile__avatar-edit-btn');
 const popupEditAvatarForm = document.querySelector('.popup-avatar__form');
 const popupEditAvatar = '.popup-avatar';
 
-const elements = '.elements';
+
 let userId;
 
 const api = new Api(apiSetting);
 
 const popupWithImage = new PopupWithImage(popupOpenImage);
-const userInfo = new UserInfo({
-  name: userName,
-  about: userActivity,
-  avatar: userAvatar,
-});
+const userInfo = new UserInfo();
 
 
-
+const cardSection = new Section(null,'.elements')
 Promise.all([api.getUserInfo(), api.getInitialCards()])
   .then(([userData, arrayCards]) => {
     userInfo.setUserInfo(userData);
     userId = userData._id;
     arrayCards.forEach(item => {
-      const card = createCard(item);
-    })
+      cardSection.addItem(createCard(item));
+    });
 
   })
   .catch((err) => {
@@ -56,7 +49,7 @@ Promise.all([api.getUserInfo(), api.getInitialCards()])
 //функция создания карточки для форм
 const createCard = (data) => {
   const card = new Card(
-    data,"#element-template",handleCardClick,
+    data,"#card-template",handleCardClick,
     handleCardRemove, handleCardLike,userId);
 
   const cardView = card.generateCard();
@@ -117,13 +110,14 @@ const formAddCard = new PopupWithForm({
   popupSelector: popupAdd,
   handleFormSubmit: handleFormAddSubmit,
 });
+formAddCard.setEventListeners()
 //
 function handleFormAddSubmit(cardElement) {
   formAddCard.showWaitingText("Сохранение...");
   api
     .getPlaceCard(cardElement)
     .then((res) => {
-      cardsList.addNewItem(createCard(res));
+      cardSection.addItem(createCard(res));
       formAddCard.close();
     })
     .catch((err) => {
@@ -158,14 +152,14 @@ formEdit.setEventListeners();
 //
 const popupWithAvatar = new PopupWithForm({
   popupSelector: popupEditAvatar,
-  formSubmit: handleFormEditAvatarSubmit,
+  handleFormSubmit: handleFormEditAvatarSubmit,
 });
 popupWithAvatar.setEventListeners();
 
 function handleFormEditAvatarSubmit(newLink) {
   popupWithAvatar.showWaitingText('Сохранение...')
   api
-    .installAvatar(newLink.avatar)
+    .installAvatar(newLink.avatarInput)
     .then((res) => {
       userInfo.setUserInfo(res);
       popupWithAvatar.close();
@@ -191,16 +185,16 @@ btnEditAvatar.addEventListener("click", () => {
 
   const popupEditUserProfile = new PopupWithForm({
     popupSelector: popupTypeEdit,
-    formSubmit: (userData) => {
+    handleFormSubmit: (userData) => {
       userInfo.setUserInfo(userData);
   }});
 
     popupEditUserProfile.setEventListeners();
 //
 profileButton.addEventListener('click', () => {
-  const {name, job} = userInfo.getUserInfo();
+  const {name, about} = userInfo.getUserInfo();
     nameInput.value = name;
-    jobInput.value = job;
+    jobInput.value = about;
     formProfileValidation.resetValidation();
   popupEditUserProfile.open();
 });

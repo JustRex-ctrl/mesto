@@ -1,4 +1,6 @@
 .card__place-image {
+  position: relative;
+  z-index: 1;
   width: 100%;
   width: 282px;
   height: 282px;

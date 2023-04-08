@@ -32,12 +32,12 @@ const popupWithImage = new PopupWithImage(popupOpenImage);
 const userInfo = new UserInfo();
 
 
-const cardSection = new Section(null,'.elements')
+const cardSection = new Section('.elements')
 Promise.all([api.getUserInfo(), api.getInitialCards()])
   .then(([userData, arrayCards]) => {
     userInfo.setUserInfo(userData);
     userId = userData._id;
-    arrayCards.forEach(item => {
+    arrayCards.reverse().forEach(item => {
       cardSection.addItem(createCard(item));
     });
 
@@ -79,8 +79,8 @@ const popupWarning = new PopupWithWarning(
   checkBeforeDeletion
 );
 //
-function handleCardRemove(card, cardId) {
-  popupWarning.open(card, cardId);
+function handleCardRemove(card) {
+  popupWarning.open(card);
 }
 //
 function checkBeforeDeletion(card) {
@@ -88,7 +88,7 @@ function checkBeforeDeletion(card) {
   api
     .deleteCard(card._cardId)
     .then(() => {
-      card.delete();
+      card.deleteCard();
       popupWarning.close();
     })
     .catch((err) => {
@@ -159,7 +159,7 @@ popupWithAvatar.setEventListeners();
 function handleFormEditAvatarSubmit(newLink) {
   popupWithAvatar.showWaitingText('Сохранение...')
   api
-    .installAvatar(newLink.avatarInput)
+    .installAvatar(newLink.avatar)
     .then((res) => {
       userInfo.setUserInfo(res);
       popupWithAvatar.close();
@@ -210,5 +210,4 @@ const formAvatarValidation = new FormValidator(
   validationConfig,
   popupEditAvatarForm
 );
-
-//formAvatarValidation.enableValidation();!!!
+formAvatarValidation.enableValidation();

@@ -80,6 +80,7 @@
     <template id="card-template">
       <div class="card">
         <button class="card__button-delete link-hover"></button>
+
         <img class="card__place-image" src="#" alt="Фотография">
         <div class="card__caption-place">
           <p class="card__name-place"></p>
@@ -97,8 +98,8 @@
         <img class="popup__close link-hover" src="<%=require('./images/logo/CloseIcon.svg')%>"  alt="закрыть">
         <h2 class="popup__title">Обновить аватар</h2>
         <form class="popup__form popup-avatar__form" name="popup-avatar__form" novalidate>
-            <input name="avatar" type="url" class="popup__input popup__input_text_type-avatar" placeholder="Ссылка на картинку" required id="avatarInput">
-            <span class="popup__input-error avatar-input-error"></span>
+            <input name="avatar" type="url" class="popup__input popup__input_text_type-avatar" placeholder="Ссылка на картинку" required id="avatar">
+            <span class=" avatar-error popup__input-error"></span>
           <button type="submit" class="popup__button popup-avatar__submit">Сохранить</button>
         </form>
       </div>

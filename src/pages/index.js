@@ -1,7 +1,7 @@
 import '../pages/index.css';
 import {Card} from '../components/Card.js';
 import {FormValidator} from '../components/FormValidator.js'
-import {validationConfig, apiSetting} from '../components/constants.js';
+import {validationConfig, apiSetting} from '../utils/constants.js';
 import {Section} from '../components/Section.js';
 import {PopupWithForm} from '../components/PopupWithForm.js';
 import {UserInfo} from '../components/UserInfo.js';
@@ -23,7 +23,6 @@ const btnEditAvatar = document.querySelector('.profile__avatar-edit-btn');
 const popupEditAvatarForm = document.querySelector('.popup-avatar__form');
 const popupEditAvatar = '.popup-avatar';
 
-
 let userId;
 
 const api = new Api(apiSetting);
@@ -31,16 +30,13 @@ const api = new Api(apiSetting);
 const popupWithImage = new PopupWithImage(popupOpenImage);
 const userInfo = new UserInfo();
 
-
 const cardSection = new Section('.elements')
 Promise.all([api.getUserInfo(), api.getInitialCards()])
   .then(([userData, arrayCards]) => {
     userInfo.setUserInfo(userData);
     userId = userData._id;
-    arrayCards.reverse().forEach(item => {
-      cardSection.addItem(createCard(item));
-    });
-
+    const initialCards = arrayCards.reverse().map(item => createCard(item));
+    cardSection.renderItems(initialCards);
   })
   .catch((err) => {
     console.log(err);
@@ -128,27 +124,27 @@ function handleFormAddSubmit(cardElement) {
     });
 }
 //
-const formEdit = new PopupWithForm({
+const popupEditProfile = new PopupWithForm({
   popupSelector: popupTypeEdit,
   handleFormSubmit: handleFormEditSubmit,
 });
 //
 function handleFormEditSubmit(data) {
-  formEdit.showWaitingText("Сохранение...");
+  popupEditProfile.showWaitingText("Сохранение...");
   api
     .setUserInfo(data)
     .then((res) => {
       userInfo.setUserInfo(res);
-      formEdit.close();
+      popupEditProfile.close();
     })
     .catch((err) => {
       console.log(err);
     })
     .finally(() => {
-      formEdit.showWaitingText("Сохранить");
+      popupEditProfile.showWaitingText("Сохранить");
     });
 }
-formEdit.setEventListeners();
+popupEditProfile.setEventListeners();
 //
 const popupWithAvatar = new PopupWithForm({
   popupSelector: popupEditAvatar,
@@ -181,22 +177,14 @@ btnEditAvatar.addEventListener("click", () => {
   formProfileValidation.resetValidation();
   popupWithAvatar.open();
 });
-//
 
-  const popupEditUserProfile = new PopupWithForm({
-    popupSelector: popupTypeEdit,
-    handleFormSubmit: (userData) => {
-      userInfo.setUserInfo(userData);
-  }});
-
-    popupEditUserProfile.setEventListeners();
 //
 profileButton.addEventListener('click', () => {
   const {name, about} = userInfo.getUserInfo();
     nameInput.value = name;
     jobInput.value = about;
     formProfileValidation.resetValidation();
-  popupEditUserProfile.open();
+    popupEditProfile.open();
 });
 
 //валидация

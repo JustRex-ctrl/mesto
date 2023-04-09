@@ -1,4 +1,4 @@
-import {userInfoData} from './constants.js'
+import {userInfoData} from '../utils/constants.js'
 
 export class UserInfo {
   constructor() {
